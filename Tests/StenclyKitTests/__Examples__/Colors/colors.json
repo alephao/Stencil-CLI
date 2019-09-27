@@ -1,0 +1,8 @@
+{
+    "colors": [
+        { "name": "color1", "hex": "111111" },
+        { "name": "color2", "hex": "222222" },
+        { "name": "color3", "hex": "333333" },
+        { "name": "color4", "hex": "444444" }
+    ]
+}

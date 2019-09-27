@@ -1,0 +1,5 @@
+extension Color {
+    {% for color in colors %}
+    public static let {{ color.name }} = Color(hex: 0x{{ color.hex }})
+    {% endfor %}
+}

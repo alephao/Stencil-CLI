@@ -1,0 +1,6 @@
+extension Color {
+    public static let color1 = Color(hex: 0x111111)
+    public static let color2 = Color(hex: 0x222222)
+    public static let color3 = Color(hex: 0x333333)
+    public static let color4 = Color(hex: 0x444444)
+}
