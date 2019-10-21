@@ -1,5 +1,8 @@
 extension Color {
+    {% macro static-color-prop name hex %}
+    public static let {{ name }} = Color(hex: 0x{{ hex }})
+    {% endmacro %}
     {% for color in colors %}
-    public static let {{ color.name }} = Color(hex: 0x{{ color.hex }})
+    {% call static-color-prop color.name color.hex %}
     {% endfor %}
 }
