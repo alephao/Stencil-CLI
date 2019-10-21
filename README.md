@@ -2,6 +2,13 @@
 
 Generate code by using a stencil template and a json or yaml data source
 
+## Instalation
+
+### Using [Mint](https://github.com/yonaskolb/mint):
+```
+$ mint install alephao/Stencly
+```
+
 ## Usage
 
 ```
