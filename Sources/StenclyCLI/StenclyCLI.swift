@@ -13,7 +13,7 @@ public class StenclyCLI {
             description: "Render stencil templates using a data source",
             commands: [renderCommand]
         )
-        
+
         cli.parser.routeBehavior = .searchWithFallback(renderCommand)
     }
 
@@ -38,6 +38,8 @@ class RenderCommand: Command {
         let output = getOutputPathIfMissing()
 
         try stencly.run(templatePathString: template, dataSourcePathString: dataSource, outputPathString: output)
+
+        stdout <<< "Rendered file on path \(output)"
     }
 
     private func getTemplatePathIfMissing() -> String {
