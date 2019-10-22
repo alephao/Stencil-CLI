@@ -1,0 +1,6 @@
+.PHONY:{% for target in targets %} {{ target.name }}{% endfor %}
+
+{% for target in targets %}
+{{ target.name }}:
+	{{ target.command }}
+{% endfor %}
