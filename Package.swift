@@ -7,7 +7,7 @@ let package = Package(
     products: [
         .executable(
             name: "stencly",
-            targets: ["CLI"]
+            targets: ["stencly"]
         ),
         .library(
             name: "StenclyKit",
@@ -19,12 +19,17 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.6.0"),
         .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "4.0.0"),
         .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
-        .package(url: "https://github.com/kylef/Commander.git", from: "0.9.1"),
+//        .package(url: "https://github.com/kylef/Commander.git", from: "0.9.1"),
+        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "5.0.0"),
     ],
     targets: [
         .target(
-            name: "CLI",
-            dependencies: ["StenclyKit", "Commander"]
+            name: "stencly",
+            dependencies: ["StenclyCLI"]
+        ),
+        .target(
+            name: "StenclyCLI",
+            dependencies: ["StenclyKit", "SwiftCLI"]
         ),
         .target(
             name: "StenclyKit",
