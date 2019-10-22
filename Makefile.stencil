@@ -1,9 +1,15 @@
 prefix ?= /usr/local
 bindir = $(prefix)/bin
-
 {% for target in targets %}
+
 {{ target.name }}:{% for dep in target.dependencies %} {{ dep }}{% endfor %}
 	{{ target.command }}
 {% endfor %}
 
-.PHONY:{% for target in targets %} {{ target.name }}{% endfor %}
+list:
+	@echo Available commands:
+	{% for target in targets %}
+	@echo - {{ target.name }}
+	{% endfor %}
+
+.PHONY:{% for target in targets %} {{ target.name }}{% endfor %} list
