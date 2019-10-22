@@ -1,9 +1,12 @@
 targets:
+  - name: install
+    dependencies: [build]
+    command: install ".build/release/stencly" "$(bindir)"
   - name: build
     command: swift build -c release --disable-sandbox
   - name: format
     command: swiftformat .
   - name: clean
     command: rm -rf .build
-  - name: generate_makefile
+  - name: makefile
     command: swift run stencly render -t Makefile.stencil -d ./Makefile.yaml -o ./Makefile

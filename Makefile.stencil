@@ -1,6 +1,9 @@
-.PHONY:{% for target in targets %} {{ target.name }}{% endfor %}
+prefix ?= /usr/local
+bindir = $(prefix)/bin
 
 {% for target in targets %}
-{{ target.name }}:
+{{ target.name }}:{% for dep in target.dependencies %} {{ dep }}{% endfor %}
 	{{ target.command }}
 {% endfor %}
+
+.PHONY:{% for target in targets %} {{ target.name }}{% endfor %}
