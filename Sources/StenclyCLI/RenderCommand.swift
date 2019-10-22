@@ -28,6 +28,7 @@ class RenderCommand: Command {
     private func getDataSourcePathIfMissing() -> String {
         return dataSourcePath.value ?? Input.readLine(prompt: "Data source path:")
     }
+
     private func getOutputPathIfMissing() -> String {
         return outputPath.value ?? Input.readLine(prompt: "Output path:")
     }

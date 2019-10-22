@@ -1,5 +1,4 @@
 // swift-tools-version:5.0
-
 import PackageDescription
 
 let package = Package(
@@ -19,7 +18,6 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.6.0"),
         .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "4.0.0"),
         .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
-//        .package(url: "https://github.com/kylef/Commander.git", from: "0.9.1"),
         .package(url: "https://github.com/jakeheis/SwiftCLI", from: "5.0.0"),
     ],
     targets: [
