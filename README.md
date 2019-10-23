@@ -1,23 +1,34 @@
 # Stencly
 
-Generate code by using a stencil template and a json or yaml data source
+Render a [Stencil](https://github.com/stencilproject/Stencil) template by using a JSON or Yaml data source.
 
-## Instalation
+Tags and filters from [StencilSwiftKit](https://github.com/SwiftGen/StencilSwiftKit) are supported.
+
+## Installing
 
 ### Using [Mint](https://github.com/yonaskolb/mint):
+
 ```
 $ mint install alephao/Stencly
+```
+
+### Using Make
+
+```
+$ git clone https://github.com/alephao/Stencly.git
+$ cd Stencly
+$ make install
 ```
 
 ## Usage
 
 ```
-stencly path/to/template.stencil path/to/datasource.stencil path/to/output
+$ stencly -t path/to/template.stencil -d path/to/datasource.stencil -o path/to/output
 ```
 
 ## Example
 
-Given the stencil template 
+Given the stencil template
 
 ```
 extension Color {
@@ -53,6 +64,3 @@ extension Color {
 }
 
 ```
-
-
-
