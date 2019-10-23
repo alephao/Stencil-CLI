@@ -19,6 +19,10 @@ clean:
 makefile:
 	swift run stencly render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
 
+archive:
+	mkdir -p archive
+	tar -cvzf ./archive/stencly.tar.gz  -C .build/release/ stencly
+
 list:
 	@echo Available commands:
 	@echo - install
@@ -27,5 +31,6 @@ list:
 	@echo - format
 	@echo - clean
 	@echo - makefile
+	@echo - archive
 
-.PHONY: install uninstall build format clean makefile list
+.PHONY: install uninstall build format clean makefile archive list

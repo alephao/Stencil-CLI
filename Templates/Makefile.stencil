@@ -3,7 +3,9 @@ bindir = $(prefix)/bin
 {% for target in targets %}
 
 {{ target.name }}:{% for dep in target.dependencies %} {{ dep }}{% endfor %}
-	{{ target.command }}
+	{% for command in target.command %}
+	{{ command }}
+	{% endfor %}
 {% endfor %}
 
 list:

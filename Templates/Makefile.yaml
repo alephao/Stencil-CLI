@@ -1,14 +1,25 @@
+---
 targets:
   - name: install
     dependencies: [build]
-    command: install ".build/release/stencly" "$(bindir)"
+    command:
+      - install ".build/release/stencly" "$(bindir)"
   - name: uninstall
-    command: rm -rf "$(bindir)/stencly"
+    command:
+      - rm -rf "$(bindir)/stencly"
   - name: build
-    command: swift build -c release --disable-sandbox
+    command:
+      - swift build -c release --disable-sandbox
   - name: format
-    command: swiftformat .
+    command:
+      - swiftformat .
   - name: clean
-    command: rm -rf .build
+    command:
+      - rm -rf .build
   - name: makefile
-    command: swift run stencly render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
+    command:
+      - swift run stencly render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
+  - name: archive
+    command:
+      - mkdir -p archive
+      - tar -cvzf ./archive/stencly.tar.gz  -C .build/release/ stencly
