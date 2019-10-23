@@ -2,6 +2,8 @@ targets:
   - name: install
     dependencies: [build]
     command: install ".build/release/stencly" "$(bindir)"
+  - name: uninstall
+    command: rm -rf "$(bindir)/stencly"
   - name: build
     command: swift build -c release --disable-sandbox
   - name: format
