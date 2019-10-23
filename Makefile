@@ -14,7 +14,7 @@ clean:
 	rm -rf .build
 
 makefile:
-	swift run stencly render -t Makefile.stencil -d ./Makefile.yaml -o ./Makefile
+	swift run stencly render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
 
 list:
 	@echo Available commands:

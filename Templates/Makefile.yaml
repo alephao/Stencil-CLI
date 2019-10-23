@@ -9,4 +9,4 @@ targets:
   - name: clean
     command: rm -rf .build
   - name: makefile
-    command: swift run stencly render -t Makefile.stencil -d ./Makefile.yaml -o ./Makefile
+    command: swift run stencly render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
