@@ -19,7 +19,7 @@ clean:
 makefile:
 	swift run stencly render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
 
-archive:
+archive: build
 	mkdir -p archive
 	tar -cvzf ./archive/stencly.tar.gz  -C .build/release/ stencly
 
