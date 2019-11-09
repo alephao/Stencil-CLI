@@ -30,7 +30,7 @@ $ stencly -t path/to/template.stencil -d path/to/datasource.stencil -o path/to/o
 
 Given the stencil template
 
-```
+```stencil
 extension Color {
     {% for color in colors %}
     public static let {{ color.name }} = Color(hex: 0x{{ color.hex }})
@@ -40,8 +40,7 @@ extension Color {
 
 And the yaml file
 
-```
----
+```yaml
 colors:
 - name: color1
   hex: '111111'
@@ -55,7 +54,7 @@ colors:
 
 Stencly generates
 
-```
+```swift
 extension Color {
     public static let color1 = Color(hex: 0x111111)
     public static let color2 = Color(hex: 0x222222)
