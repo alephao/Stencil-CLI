@@ -64,3 +64,18 @@ extension Color {
 }
 
 ```
+
+## Attributions
+
+This tool is powered by:
+
+* [Stencil](https://github.com/stencilproject/Stencil)
+* [SwiftCLI](https://github.com/jakeheis/SwiftCLI)
+* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+* [SwiftStencilKit](https://github.com/SwiftGen/StencilSwiftKit)
+* [Yams](https://github.com/jpsim/Yams)
+* Tested using [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing)
+
+## License
+
+Stencly is available under the MIT license. See LICENSE for more information.
