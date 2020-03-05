@@ -18,7 +18,7 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.6.0"),
         .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "4.0.0"),
         .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
-        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "5.0.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1"),
     ],
     targets: [
         .target(
@@ -27,7 +27,7 @@ let package = Package(
         ),
         .target(
             name: "StenclyCLI",
-            dependencies: ["StenclyKit", "SwiftCLI"]
+            dependencies: ["StenclyKit", "ArgumentParser"]
         ),
         .target(
             name: "StenclyKit",

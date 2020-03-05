@@ -23,7 +23,7 @@ $ make install
 ## Usage
 
 ```
-$ stencly -t path/to/template.stencil -d path/to/datasource.stencil -o path/to/output
+$ stencly render -t path/to/template.stencil -d path/to/datasource.stencil -o path/to/output
 ```
 
 ## Example
@@ -69,10 +69,10 @@ extension Color {
 This tool is powered by:
 
 * [Stencil](https://github.com/stencilproject/Stencil)
-* [SwiftCLI](https://github.com/jakeheis/SwiftCLI)
-* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 * [SwiftStencilKit](https://github.com/SwiftGen/StencilSwiftKit)
+* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 * [Yams](https://github.com/jpsim/Yams)
+* [swift-argument-parser](https://github.com/apple/swift-argument-parser)
 * Tested using [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing)
 
 ## License

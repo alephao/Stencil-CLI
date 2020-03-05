@@ -1,15 +1,22 @@
+import ArgumentParser
 import StenclyKit
-import SwiftCLI
 
-class RenderCommand: Command {
-    let name = "render"
-    let shortDescription: String = "Render a stencil template using a data source"
+final class RenderCommand: ParsableCommand {
+    static let configuration: CommandConfiguration = .init(
+        commandName: "render",
+        abstract: "Render a stencil template using a data source"
+    )
+    
+    @Option(name: [.customShort("t"), .customLong("template")], help: "The path to the stencil template you want to render.")
+    var templatePath: String?
 
-    let templatePath = Key<String>("-t", "--template", description: "The path to the stencil template you want to render.")
-    let dataSourcePath = Key<String>("-d", "--datasource", description: "The path to the datasource. A JSON or Yaml file.")
-    let outputPath = Key<String>("-o", "--output", description: "The path where you want to save the generated file.")
+    @Option(name: [.customShort("d"), .customLong("datasource")], help: "The path to the datasource. A JSON or Yaml file.")
+    var dataSourcePath: String?
 
-    func execute() throws {
+    @Option(name: [.customShort("o"), .customLong("output")], help: "The path where you want to save the generated file.")
+    var outputPath: String?
+
+    func run() throws {
         let stencly = Stencly()
 
         let template = getTemplatePathIfMissing()
@@ -18,18 +25,23 @@ class RenderCommand: Command {
 
         try stencly.run(templatePathString: template, dataSourcePathString: dataSource, outputPathString: output)
 
-        stdout <<< "Rendered file on path \(output)"
+        print("Rendered file on path \(output)")
+    }
+
+    private func readLine(prompt: String) -> String? {
+        print(prompt)
+        return Swift.readLine(strippingNewline: true)?.trimmingCharacters(in: [" "])
     }
 
     private func getTemplatePathIfMissing() -> String {
-        return templatePath.value ?? Input.readLine(prompt: "Template path:")
+        return templatePath ?? readLine(prompt: "Template path:")!
     }
 
     private func getDataSourcePathIfMissing() -> String {
-        return dataSourcePath.value ?? Input.readLine(prompt: "Data source path:")
+        return dataSourcePath ?? readLine(prompt: "Data source path:")!
     }
 
     private func getOutputPathIfMissing() -> String {
-        return outputPath.value ?? Input.readLine(prompt: "Output path:")
+        return outputPath ?? readLine(prompt: "Output path:")!
     }
 }
