@@ -4,6 +4,14 @@ Render a [Stencil](https://github.com/stencilproject/Stencil) template by using 
 
 Tags and filters from [StencilSwiftKit](https://github.com/SwiftGen/StencilSwiftKit) are supported.
 
+## Why this project exists?
+
+I often find myself in need to generate Swift code from a data source. Most of the time I don't need to do something very complicated, I just want to have access to a key-value object inside my template.
+
+Thanks to [this blog post on NSHipster](https://nshipster.com/swift-gyb/), I found out about GYB, and that was good enough for my needs. However, this requires the rest of the team to learn some python, which might not be optimal in a team of Swift developers.
+
+So this project exists to make code generation via data sources easy for Swift developers, without needing to go outside of our comfort zone.
+
 ## Installing
 
 ### Using [Mint](https://github.com/yonaskolb/mint):
