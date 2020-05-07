@@ -21,7 +21,7 @@ makefile:
 
 archive: build
 	mkdir -p archive
-	tar -cvzf ./archive/stencil.tar.gz  -C .build/release/ stencil
+	tar -cvzf ./archive/stencil-cli.tar.gz  -C .build/release/ stencil
 
 list:
 	@echo Available commands:
