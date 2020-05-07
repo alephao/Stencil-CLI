@@ -1,44 +1,36 @@
-# Stencly
+# Stencil CLI
 
-Render a [Stencil](https://github.com/stencilproject/Stencil) template by using a JSON or Yaml data source.
+A CLI tool to render [Stencil](https://github.com/stencilproject/Stencil) templates by using a JSON or Yaml data source.
 
 Tags and filters from [StencilSwiftKit](https://github.com/SwiftGen/StencilSwiftKit) are supported.
-
-## Why this project exists?
-
-I often find myself in need to generate Swift code from a data source. Most of the time I don't need to do something very complicated, I just want to have access to a key-value object inside my template.
-
-Thanks to [this blog post on NSHipster](https://nshipster.com/swift-gyb/), I found out about GYB, and that was good enough for my needs. However, this requires the rest of the team to learn some python, which might not be optimal in a team of Swift developers.
-
-So this project exists to make code generation via data sources easy for Swift developers, without needing to go outside of our comfort zone.
 
 ## Installing
 
 ### Using [Mint](https://github.com/yonaskolb/mint):
 
 ```
-$ mint install alephao/Stencly
+$ mint install alephao/Stencil-CLI
 ```
 
 ### Using Make
 
 ```
-$ git clone https://github.com/alephao/Stencly.git
-$ cd Stencly
+$ git clone https://github.com/alephao/Stencil-CLI.git
+$ cd stencil-cli
 $ make install
 ```
 
 ## Usage
 
 ```
-$ stencly render -t path/to/template.stencil -d path/to/datasource.stencil -o path/to/output
+$ stencil render -t path/to/template.stencil -d path/to/datasource.stencil -o path/to/output
 ```
 
 ## Example
 
 Given the stencil template
 
-```stencil
+```
 extension Color {
     {% for color in colors %}
     public static let {{ color.name }} = Color(hex: 0x{{ color.hex }})
@@ -60,7 +52,7 @@ colors:
   hex: '444444'
 ```
 
-Stencly generates
+stencil-cli generates
 
 ```swift
 extension Color {
@@ -85,4 +77,4 @@ This tool is powered by:
 
 ## License
 
-Stencly is available under the MIT license. See LICENSE for more information.
+Stencil CLI is available under the MIT license. See LICENSE for more information.

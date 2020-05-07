@@ -1,8 +1,8 @@
 import ArgumentParser
 
-struct StenclyCommand: ParsableCommand {
+struct StencilCommand: ParsableCommand {
     static var configuration = CommandConfiguration(
-        commandName: "stencly",
+        commandName: "stencil",
         abstract: "Render stencil templates using a data source.",
         subcommands: [RenderCommand.self])
 

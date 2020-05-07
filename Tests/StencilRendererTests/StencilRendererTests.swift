@@ -1,8 +1,8 @@
 import SnapshotTesting
-@testable import StenclyKit
+@testable import StencilRenderer
 import XCTest
 
-final class StenclyTests: XCTestCase {
+final class StencilRendererTests: XCTestCase {
     private func getFilePath(_ path: String) -> String {
         let file = #file
         let fileUrl = URL(fileURLWithPath: "\(file)", isDirectory: false)
@@ -18,16 +18,16 @@ final class StenclyTests: XCTestCase {
         let jsonDataSource = getFilePath("Colors/colors.json")
         let yamlDataSource = getFilePath("Colors/colors.yaml")
 
-        let stencly = Stencly()
+        let renderer = StencilRenderer()
 
-        let generatedFileFromJson = try stencly.renderTemplate(templatePathString: template, dataSourcePathString: jsonDataSource)
-        let generatedFileFromYaml = try stencly.renderTemplate(templatePathString: template, dataSourcePathString: yamlDataSource)
+        let generatedFileFromJson = try renderer.renderTemplate(templatePathString: template, dataSourcePathString: jsonDataSource)
+        let generatedFileFromYaml = try renderer.renderTemplate(templatePathString: template, dataSourcePathString: yamlDataSource)
 
         assertSnapshot(matching: generatedFileFromJson, as: .lines)
         assertSnapshot(matching: generatedFileFromYaml, as: .lines)
     }
 
     static var allTests = [
-        ("testGenerateColors", testGenerateColors),
+      ("testGenerateColors", StencilRendererTests.testGenerateColors),
     ]
 }

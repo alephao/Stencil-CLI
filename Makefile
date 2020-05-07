@@ -2,10 +2,10 @@ prefix ?= /usr/local
 bindir = $(prefix)/bin
 
 install: build
-	install ".build/release/stencly" "$(bindir)"
+	install ".build/release/stencil" "$(bindir)"
 
 uninstall:
-	rm -rf "$(bindir)/stencly"
+	rm -rf "$(bindir)/stencil"
 
 build:
 	swift build -c release --disable-sandbox
@@ -17,11 +17,11 @@ clean:
 	rm -rf .build
 
 makefile:
-	swift run stencly render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
+	swift run stencil render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
 
 archive: build
 	mkdir -p archive
-	tar -cvzf ./archive/stencly.tar.gz  -C .build/release/ stencly
+	tar -cvzf ./archive/stencil.tar.gz  -C .build/release/ stencil
 
 list:
 	@echo Available commands:

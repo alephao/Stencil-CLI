@@ -1,5 +1,5 @@
 import ArgumentParser
-import StenclyKit
+import StencilRenderer
 
 final class RenderCommand: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
@@ -17,13 +17,13 @@ final class RenderCommand: ParsableCommand {
     var outputPath: String?
 
     func run() throws {
-        let stencly = Stencly()
+        let stencilRenderer = StencilRenderer()
 
         let template = getTemplatePathIfMissing()
         let dataSource = getDataSourcePathIfMissing()
         let output = getOutputPathIfMissing()
 
-        try stencly.run(templatePathString: template, dataSourcePathString: dataSource, outputPathString: output)
+        try stencilRenderer.run(templatePathString: template, dataSourcePathString: dataSource, outputPathString: output)
 
         print("Rendered file on path \(output)")
     }

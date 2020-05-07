@@ -1,7 +1,7 @@
 import XCTest
 
-import adstoolTests
+import StencilRendererTests
 
 var tests = [XCTestCaseEntry]()
-tests += adstoolTests.allTests()
+tests += StencilRendererTests.allTests()
 XCTMain(tests)

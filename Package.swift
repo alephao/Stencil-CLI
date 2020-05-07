@@ -2,15 +2,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "Stencly",
+    name: "Stencil CLI",
     products: [
         .executable(
-            name: "stencly",
-            targets: ["stencly"]
+            name: "stencil",
+            targets: ["executable"]
         ),
         .library(
-            name: "StenclyKit",
-            targets: ["StenclyKit"]
+            name: "StencilRenderer",
+            targets: ["StencilRenderer"]
         ),
     ],
     dependencies: [
@@ -22,20 +22,20 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "stencly",
-            dependencies: ["StenclyCLI"]
+            name: "executable",
+            dependencies: ["StencilCLI"]
         ),
         .target(
-            name: "StenclyCLI",
-            dependencies: ["StenclyKit", "ArgumentParser"]
+            name: "StencilCLI",
+            dependencies: ["StencilRenderer", "ArgumentParser"]
         ),
         .target(
-            name: "StenclyKit",
+            name: "StencilRenderer",
             dependencies: ["StencilSwiftKit", "SwiftyJSON", "Yams"]
         ),
         .testTarget(
-            name: "StenclyKitTests",
-            dependencies: ["StenclyKit", "SnapshotTesting"]
+            name: "StencilRendererTests",
+            dependencies: ["StencilRenderer", "SnapshotTesting"]
         ),
     ]
 )

@@ -1,9 +1,9 @@
 import ArgumentParser
 
-public class StenclyCLI {
+public class StencilCLI {
     public init() {}
 
     public func run() {
-        StenclyCommand.main()
+        StencilCommand.main()
     }
 }

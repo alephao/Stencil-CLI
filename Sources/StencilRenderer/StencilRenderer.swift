@@ -2,7 +2,7 @@ import PathKit
 import Stencil
 import StencilSwiftKit
 
-public class Stencly {
+public class StencilRenderer {
     private let environment: Environment
 
     public init() {
