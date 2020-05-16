@@ -23,7 +23,7 @@ $ make install
 ## Usage
 
 ```
-$ stencil render -t path/to/template.stencil -d path/to/datasource.stencil -o path/to/output
+$ stencil render -t path/to/template.stencil -d path/to/datasource.yaml -o path/to/output
 ```
 
 ## Example
