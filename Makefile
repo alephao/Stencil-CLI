@@ -1,36 +1,34 @@
 prefix ?= /usr/local
-bindir = $(prefix)/bin
+bindir ?= $(prefix)/bin
 
+REPODIR = $(shell pwd)
+BUILDDIR = $(REPODIR)/.build
+
+.PHONY: build
+build:
+	swift build \
+		-c release \
+		--disable-sandbox \
+		--build-path "$(BUILDDIR)"
+
+.PHONY: install
 install: build
-	install ".build/release/stencil" "$(bindir)"
+	install -d "$(bindir)"
+	install "$(BUILDDIR)/release/stencil" "$(bindir)"
 
+.PHONY: uninstall
 uninstall:
 	rm -rf "$(bindir)/stencil"
 
-build:
-	swift build -c release --disable-sandbox
-
+.PHONY: format
 format:
 	swiftformat .
 
+.PHONY: clean
 clean:
-	rm -rf .build
+	rm -rf $(BUILDDIR)
 
-makefile:
-	swift run stencil render -t Templates/Makefile.stencil -d Templates/Makefile.yaml -o ./Makefile
-
+.PHONY: archive
 archive: build
 	mkdir -p archive
-	tar -cvzf ./archive/stencil-cli.tar.gz  -C .build/release/ stencil
-
-list:
-	@echo Available commands:
-	@echo - install
-	@echo - uninstall
-	@echo - build
-	@echo - format
-	@echo - clean
-	@echo - makefile
-	@echo - archive
-
-.PHONY: install uninstall build format clean makefile archive list
+	tar -cvzf ./archive/stencil-cli.tar.gz  -C $(BUILDDIR)/release/ stencil
