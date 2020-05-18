@@ -6,6 +6,12 @@ Tags and filters from [StencilSwiftKit](https://github.com/SwiftGen/StencilSwift
 
 ## Installing
 
+### Using Homebrew
+
+```
+brew install alephao/formulae/stencil
+```
+
 ### Using [Mint](https://github.com/yonaskolb/mint):
 
 ```
